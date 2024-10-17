@@ -31,11 +31,14 @@ $books = [
 
 <ul>
     <?php foreach ($books as $book) : ?>
-        <li>
-            <a href="<?= $book['purchaseUrl'] ?>">
-                <?= $book['name'] ?>
-            </a>
-        </li>
+        <?php if ($book['author'] === 'Andy Weir') :?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name'] ?>
+                </a>
+            </li>
+        <?php endif;?>
+
     <?php endforeach; ?>
 </ul>
 
