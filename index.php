@@ -32,7 +32,9 @@ $books = [
 <ul>
     <?php foreach ($books as $book) : ?>
         <li>
-            <?= $book['name'] ?>
+            <a href="<?= $book['purchaseUrl'] ?>">
+                <?= $book['name'] ?>
+            </a>
         </li>
     <?php endforeach; ?>
 </ul>
