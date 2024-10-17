@@ -27,16 +27,19 @@ $books = [
         'purchaseUrl' => 'http://example.com'
     ],
 ];
-$filterByAuthor = function ($books, $author): array {
-    $filteredBooks = [];
-    foreach ($books as $book) {
-        if ($author === $book['author']) {
-            $filteredBooks[] = $book;
+
+
+$filter = function ($items, $key, $value): array {
+    $filteredItems = [];
+    foreach ($items as $item) {
+        if ($value === $item[$key]) {
+            $filteredItems[] = $item;
         }
     }
-    return $filteredBooks;
+    return $filteredItems;
 };
-$filteredBooks = $filterByAuthor($books, 'Philip K. Dick');
+
+$filteredBooks = $filter($books, 'author', 'Andy Weir');
 ?>
 
 <ul>
