@@ -29,17 +29,22 @@ $books = [
 ];
 
 
-$filter = function ($items, $key, $value): array {
+function filter($items, $fn): array {
+
     $filteredItems = [];
     foreach ($items as $item) {
-        if ($value === $item[$key]) {
+        if ($fn($item)) {
             $filteredItems[] = $item;
         }
     }
     return $filteredItems;
 };
 
-$filteredBooks = $filter($books, 'author', 'Andy Weir');
+
+$filteredBooks = filter($books, function($book){
+    return $book['releaseYear'] > 2000;
+});
+
 ?>
 
 <ul>
